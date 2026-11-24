@@ -1,0 +1,19 @@
+{
+  "lead": 1.5,
+  "tail": 2.0,
+  "lines": [
+    { "id": "01-midnight", "text": "Tonight, at exactly midnight, the Moon disappears.", "after": 0.6 },
+    { "id": "02-gone", "text": "No explosion. No warning. It's just... gone.", "after": 1.2 },
+    { "id": "03-nobody", "text": "And for one strange second, nobody on Earth notices.", "after": 0.5 },
+    { "id": "04-light", "text": "Moonlight takes about one point three seconds to reach us. So the last light the Moon ever reflected is still on its way.", "after": 1.8 },
+    { "id": "05-dark", "text": "Then the sky goes dark.", "after": 1.5 },
+    { "id": "06-stars", "text": "The full Moon is the brightest thing in the night sky. Now, every night is a moonless night. Only the stars are left.", "after": 0.8 },
+    { "id": "07-coral", "text": "Out on the reefs, many corals use moonlight as a clock, to know when to spawn. Tonight, that clock stops.", "after": 1.0 },
+    { "id": "08-morning", "text": "By morning, the oceans start to feel it.", "after": 0.6 },
+    { "id": "09-tides", "text": "The Moon is the main reason we have tides. The Sun pulls on the oceans too, but with less than half the strength.", "after": 0.8 },
+    { "id": "10-shrink", "text": "So the tides don't vanish. They shrink. High tide gets lower. Low tide gets higher.", "after": 0.8 },
+    { "id": "11-shore", "text": "Tide pools, crabs, snails, the birds that feed at the water's edge. Their whole world just got smaller.", "after": 1.0 },
+    { "id": "12-first", "text": "And that's only the first morning.", "after": 1.2 },
+    { "id": "13-teaser", "text": "Because the Moon wasn't just lighting our nights. It was holding our planet steady. And without it, Earth's tilt could start to wander.", "after": 0.5 }
+  ]
+}
