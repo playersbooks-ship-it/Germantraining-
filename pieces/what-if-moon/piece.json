@@ -1,0 +1,9 @@
+{
+  "name": "what-if-moon",
+  "title": "What If the Moon Disappeared — Ch. 1 Midnight",
+  "format": { "width": 1920, "height": 1080, "fps": 24, "bpm": 120, "duration": 16.0, "frames": 384 },
+  "formats": ["16:9"],
+  "storyFormat": "morph chain, voice-led",
+  "style": "cut-paper",
+  "review": { "safe": { "top": 60, "bottom": 110, "right": 60 }, "refs": {} }
+}

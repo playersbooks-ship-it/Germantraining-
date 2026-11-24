@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What If the Moon Disappeared</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #1b1714; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { max-width: 100vw; max-height: 100vh; width: auto; height: auto; display: block; cursor: pointer; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+"use strict";
+// =====================================================================
+//  WHAT IF THE MOON DISAPPEARED — chapter 1 "Midnight" (pilot). 16:9 for YouTube, cut paper, narrated.
+//  LOOK CHECK stage: four style frames as 4s eras joined by hard cuts. The voice-timed timeline replaces this
+//  once the storyboard is approved and voice.json exists.
+//  Colour: orange = the spark (the viewer's stand-in) and only it. Moon-cream #f6ecc8 = the Moon and its light.
+// =====================================================================
+const FORMATS = { '9:16': [1080, 1920], '4:5': [1080, 1350], '1:1': [1080, 1080], '16:9': [1920, 1080] };
+const FORMAT = new URLSearchParams(location.search).get('format') || '16:9';
+const FPS = 24, [W, H] = FORMATS[FORMAT];
+{ const cv = document.getElementById('c'); cv.width = W; cv.height = H; }
+const BPM = 120, GRID0 = 0;
+const BEAT = 60 / BPM, E8 = BEAT / 2, E16 = BEAT / 4;
+const DURATION = 16.0;
+const NFRAMES = Math.round(DURATION * FPS);
+const LOOP_T = NFRAMES / FPS;
+const SAFE = { '9:16': { top: 240, bottom: 420, right: 140 }, '4:5': { top: 80, bottom: 160, right: 60 }, '1:1': { top: 60, bottom: 110, right: 60 }, '16:9': { top: 60, bottom: 110, right: 60 } }[FORMAT];
+const HAND = '"Ink Free", "Segoe Print", "Bradley Hand", "Chalkboard SE", "Comic Neue", "Comic Sans MS", cursive';
+const CX = (W - SAFE.right) / 2;
+const MOONC = '#f6ecc8';
+const onBeat = (t) => +(GRID0 + Math.round((t - GRID0) / E8) * E8).toFixed(4);
+
+const ERA_LIST = [[0, 4, () => sMidnight()], [4, 8, () => sLight()], [8, 12, () => sReef()], [12, 16, () => sTides()]];
+const SHOTS = [
+  ['midnight', 0, 0, 4, 'the beach at midnight; the Moon over the sea'],
+  ['light',    1, 4, 8, 'the last moonlight crossing space: 1.3 s'],
+  ['reef',     2, 8, 12, 'the reef waits for a moonlight clock'],
+  ['tides',    3, 12, 16, 'the tides: Moon 100, Sun 46'],
+];
+const TIMELINE = {
+  width: W, height: H, fps: FPS, bpm: BPM, gridOffset: GRID0, duration: DURATION, frames: NFRAMES, loop: LOOP_T, safe: SAFE, aspect: FORMAT,
+  format: 'morph-chain',
+  shots: SHOTS.map(([key, era, t0, t1, title], i) => ({ id: i + 1, key, era, t0, t1, title })),
+  cuts: [4, 8, 12],
+  morphs: [],
+  cues: {},
+  acts: [{ name: 'look', role: 'build', t0: 0, t1: DURATION }],
+  board: [
+    { t: 2.5, title: 'midnight', sound: 'sea, a low pad', next: 'the Moon vanishes' },
+    { t: 6.5, title: 'the last light', sound: 'a rising tone', next: 'the beam lands' },
+    { t: 10.5, title: 'the reef', sound: 'a deep drone', next: 'morning' },
+    { t: 14.5, title: 'the tides', sound: 'bass', next: 'the Moon arrow goes' },
+  ],
+  narration: [],
+};
+window.TIMELINE = TIMELINE;
