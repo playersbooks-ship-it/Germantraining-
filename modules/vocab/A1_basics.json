@@ -1,0 +1,67 @@
+{
+  "id": "A1_basics",
+  "level": "A1",
+  "topic": "Základy",
+  "words": [
+    {
+      "de": "Guten Tag",
+      "sk": "Dobrý deň"
+    },
+    {
+      "de": "Hallo",
+      "sk": "Ahoj"
+    },
+    {
+      "de": "Tschüss",
+      "sk": "Ahoj/Dovidenia"
+    },
+    {
+      "de": "Danke",
+      "sk": "Ďakujem"
+    },
+    {
+      "de": "Bitte",
+      "sk": "Prosím"
+    },
+    {
+      "de": "Ich heiße",
+      "sk": "Volám sa"
+    },
+    {
+      "de": "Wie heißt du?",
+      "sk": "Ako sa voláš?"
+    },
+    {
+      "de": "die Nummer",
+      "sk": "číslo"
+    },
+    {
+      "de": "heute",
+      "sk": "dnes"
+    },
+    {
+      "de": "morgen",
+      "sk": "zajtra"
+    },
+    {
+      "de": "gestern",
+      "sk": "včera"
+    },
+    {
+      "de": "der Name",
+      "sk": "meno"
+    },
+    {
+      "de": "die Stadt",
+      "sk": "mesto"
+    },
+    {
+      "de": "das Land",
+      "sk": "krajina"
+    },
+    {
+      "de": "die Sprache",
+      "sk": "jazyk"
+    }
+  ]
+}

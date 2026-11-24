@@ -1,0 +1,47 @@
+{
+  "id": "A1_family",
+  "level": "A1",
+  "topic": "Rodina",
+  "words": [
+    {
+      "de": "die Mutter",
+      "sk": "matka"
+    },
+    {
+      "de": "der Vater",
+      "sk": "otec"
+    },
+    {
+      "de": "die Schwester",
+      "sk": "sestra"
+    },
+    {
+      "de": "der Bruder",
+      "sk": "brat"
+    },
+    {
+      "de": "die Eltern",
+      "sk": "rodičia"
+    },
+    {
+      "de": "die Familie",
+      "sk": "rodina"
+    },
+    {
+      "de": "die Tochter",
+      "sk": "dcéra"
+    },
+    {
+      "de": "der Sohn",
+      "sk": "syn"
+    },
+    {
+      "de": "die Großmutter",
+      "sk": "stará mama"
+    },
+    {
+      "de": "der Großvater",
+      "sk": "starý otec"
+    }
+  ]
+}

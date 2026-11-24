@@ -1,0 +1,74 @@
+{
+  "id": "C1-01",
+  "level": "C1",
+  "title": "Akademický štýl: nominalizácie a kohézia",
+  "vocab": [
+    [
+      "wesentlich",
+      "podstatný"
+    ],
+    [
+      "somit",
+      "tým pádom"
+    ],
+    [
+      "zudem",
+      "okrem toho"
+    ],
+    [
+      "hingegen",
+      "naproti tomu"
+    ],
+    [
+      "erheblich",
+      "značný"
+    ]
+  ],
+  "grammar": {
+    "title": "Nominalizácia a kohézne väzby",
+    "table": [
+      [
+        "lernen",
+        "das Lernen",
+        "„Das Lernen fällt mir leicht.“"
+      ],
+      [
+        "prüfen",
+        "die Prüfung",
+        "„Die Prüfung war anspruchsvoll.“"
+      ]
+    ]
+  },
+  "practice": [
+    {
+      "type": "translate",
+      "q": "Prelož: „Tým pádom je rozhodnutie podstatné.“",
+      "answer": "Somit ist die Entscheidung wesentlich."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "„wesentlich“ najbližšie znamená:",
+      "opts": [
+        "nepatrný",
+        "podstatný",
+        "zvedavý",
+        "drahý",
+        "Neviem"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Doplň: „Zum einen …“ — správny pár:",
+      "opts": [
+        "…darüber hinaus",
+        "…zum anderen",
+        "…denn",
+        "…trotzdem",
+        "Neviem"
+      ],
+      "a": 1
+    }
+  ],
+  "output": "Zhrň v 5 vetách odborný článok (fiktívny) o digitalizácii práce."
+}

@@ -1,0 +1,119 @@
+{
+  "id": "A1-01",
+  "level": "A1",
+  "title": "Pozdravy a predstavenie",
+  "vocab": [
+    [
+      "Guten Tag",
+      "Dobrý deň"
+    ],
+    [
+      "Hallo!",
+      "Ahoj!"
+    ],
+    [
+      "Tschüss!",
+      "Ahoj / Dovidenia"
+    ],
+    [
+      "Ich heiße…",
+      "Volám sa…"
+    ],
+    [
+      "Wie heißt du?",
+      "Ako sa voláš?"
+    ],
+    [
+      "Ich komme aus…",
+      "Pochádzam z…"
+    ]
+  ],
+  "grammar": {
+    "title": "Sloveso „sein“ v prítomnom čase",
+    "table": [
+      [
+        "ich",
+        "bin",
+        "Ich bin Peter."
+      ],
+      [
+        "du",
+        "bist",
+        "Du bist müde."
+      ],
+      [
+        "er/sie/es",
+        "ist",
+        "Sie ist nett."
+      ],
+      [
+        "wir",
+        "sind",
+        "Wir sind Freunde."
+      ],
+      [
+        "ihr",
+        "seid",
+        "Ihr seid hier."
+      ],
+      [
+        "sie/Sie",
+        "sind",
+        "Sie sind Lehrer."
+      ]
+    ]
+  },
+  "practice": [
+    {
+      "type": "gap",
+      "q": "Ich ___ Paul.",
+      "answer": "bin"
+    },
+    {
+      "type": "gap",
+      "q": "Du ___ müde.",
+      "answer": "bist"
+    },
+    {
+      "type": "translate",
+      "q": "Prelož: „Volám sa Anna.“",
+      "answer": "Ich heiße Anna."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "„Guten Tag“ znamená:",
+      "opts": [
+        "Dobrú noc",
+        "Dobrý večer",
+        "Dobrý deň",
+        "Ahoj",
+        "Neviem"
+      ],
+      "a": 2
+    },
+    {
+      "q": "Doplň: Ich ___ Peter.",
+      "opts": [
+        "bist",
+        "bin",
+        "sind",
+        "seid",
+        "Neviem"
+      ],
+      "a": 1
+    },
+    {
+      "q": "„Wie heißt du?“ znamená:",
+      "opts": [
+        "Odkiaľ si?",
+        "Ako sa máš?",
+        "Ako sa voláš?",
+        "Koľko to stojí?",
+        "Neviem"
+      ],
+      "a": 2
+    }
+  ],
+  "output": "Napíš 3 vety o sebe (meno, odkiaľ si, čo máš rád)."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "B2_media",
+  "level": "B2",
+  "topic": "Médiá",
+  "words": [
+    {
+      "de": "die Berichterstattung",
+      "sk": "spravodajstvo"
+    },
+    {
+      "de": "die Quelle",
+      "sk": "zdroj"
+    },
+    {
+      "de": "die Schlagzeile",
+      "sk": "nadpis"
+    },
+    {
+      "de": "die Redaktion",
+      "sk": "redakcia"
+    },
+    {
+      "de": "die Debatte",
+      "sk": "diskusia"
+    },
+    {
+      "de": "die Öffentlichkeit",
+      "sk": "verejnosť"
+    },
+    {
+      "de": "die Meinung",
+      "sk": "názor"
+    },
+    {
+      "de": "die Falschmeldung",
+      "sk": "hoax"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "C1_academia",
+  "level": "C1",
+  "topic": "Akadémia",
+  "words": [
+    {
+      "de": "die These",
+      "sk": "téza"
+    },
+    {
+      "de": "die Evidenz",
+      "sk": "dôkaz"
+    },
+    {
+      "de": "die Methodik",
+      "sk": "metodika"
+    },
+    {
+      "de": "der Befund",
+      "sk": "zistenie"
+    },
+    {
+      "de": "die Validität",
+      "sk": "validita"
+    },
+    {
+      "de": "die Reliabilität",
+      "sk": "spoľahlivosť"
+    },
+    {
+      "de": "die Hypothese",
+      "sk": "hypotéza"
+    },
+    {
+      "de": "die Interpretation",
+      "sk": "interpretácia"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "A2_travel",
+  "level": "A2",
+  "topic": "Cestovanie",
+  "words": [
+    {
+      "de": "der Bahnhof",
+      "sk": "stanica"
+    },
+    {
+      "de": "der Zug",
+      "sk": "vlak"
+    },
+    {
+      "de": "der Flughafen",
+      "sk": "letisko"
+    },
+    {
+      "de": "der Flug",
+      "sk": "let"
+    },
+    {
+      "de": "das Hotel",
+      "sk": "hotel"
+    },
+    {
+      "de": "die Reservierung",
+      "sk": "rezervácia"
+    },
+    {
+      "de": "der Fahrplan",
+      "sk": "cestovný poriadok"
+    },
+    {
+      "de": "ankommen",
+      "sk": "prísť"
+    },
+    {
+      "de": "abfahren",
+      "sk": "odísť"
+    },
+    {
+      "de": "das Ticket",
+      "sk": "lístok"
+    }
+  ]
+}

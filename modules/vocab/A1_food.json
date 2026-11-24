@@ -1,0 +1,47 @@
+{
+  "id": "A1_food",
+  "level": "A1",
+  "topic": "Jedlo",
+  "words": [
+    {
+      "de": "der Apfel",
+      "sk": "jablko"
+    },
+    {
+      "de": "das Brot",
+      "sk": "chlieb"
+    },
+    {
+      "de": "die Suppe",
+      "sk": "polievka"
+    },
+    {
+      "de": "das Wasser",
+      "sk": "voda"
+    },
+    {
+      "de": "der Kaffee",
+      "sk": "káva"
+    },
+    {
+      "de": "die Milch",
+      "sk": "mlieko"
+    },
+    {
+      "de": "das Bier",
+      "sk": "pivo"
+    },
+    {
+      "de": "die Rechnung",
+      "sk": "účet"
+    },
+    {
+      "de": "die Speisekarte",
+      "sk": "menu"
+    },
+    {
+      "de": "bestellen",
+      "sk": "objednať"
+    }
+  ]
+}
