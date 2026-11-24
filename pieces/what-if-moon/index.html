@@ -26,7 +26,7 @@ const FPS = 24, [W, H] = FORMATS[FORMAT];
 { const cv = document.getElementById('c'); cv.width = W; cv.height = H; }
 const BPM = 120, GRID0 = 0;
 const BEAT = 60 / BPM, E8 = BEAT / 2, E16 = BEAT / 4;
-const DURATION = 16.0;
+const DURATION = 20.0;
 const NFRAMES = Math.round(DURATION * FPS);
 const LOOP_T = NFRAMES / FPS;
 const SAFE = { '9:16': { top: 240, bottom: 420, right: 140 }, '4:5': { top: 80, bottom: 160, right: 60 }, '1:1': { top: 60, bottom: 110, right: 60 }, '16:9': { top: 60, bottom: 110, right: 60 } }[FORMAT];
@@ -35,7 +35,7 @@ const CX = (W - SAFE.right) / 2;
 const MOONC = '#f6ecc8';
 const onBeat = (t) => +(GRID0 + Math.round((t - GRID0) / E8) * E8).toFixed(4);
 
-const ERA_LIST = [[0, 4, () => sMidnight()], [4, 8, () => sLight()], [8, 12, () => sReef()], [12, 16, () => sTides()]];
+const ERA_LIST = [[0, 4, () => sMidnight()], [4, 8, () => sLight()], [8, 12, () => sReef()], [12, 16, () => sTides()], [16, 20, () => sHeroes()]];
 const SHOTS = [
   ['midnight', 0, 0, 4, 'the beach at midnight; the Moon over the sea'],
   ['light',    1, 4, 8, 'the last moonlight crossing space: 1.3 s'],
@@ -968,10 +968,81 @@ function sTides() {
   yearTag('the tides');
   capStrip('the Sun pulls too, but less than half as hard');
 }
+
+// =====================================================================
+//  HERO CANDIDATES — a channel mascot for "What if" (one gets picked, the others are dropped)
+// =====================================================================
+function heroBob(key, r) { return Math.sin(TT * TAU * 0.8 + key.length) * r * 0.04; }
+function heroBlink(key) { return (B + key.length * 7) % 41 < 2; }
+// A. OLLIE — a small round owl: night animal, big curious eyes
+function owl(x, y, r, o = {}) {
+  const key = o.key ?? 'owl', mood = o.mood ?? 'smile'; y += heroBob(key, r);
+  const body = PAL.orange, belly = '#f8d9b0';
+  cut([[x - r * 0.62, y - r * 0.55], [x - r * 0.5, y - r * 1.05], [x - r * 0.25, y - r * 0.7]], body, { key: key + 'eL', sb: 5 });
+  cut([[x + r * 0.62, y - r * 0.55], [x + r * 0.5, y - r * 1.05], [x + r * 0.25, y - r * 0.7]], body, { key: key + 'eR', sb: 5 });
+  cut(ellipsePts(x, y, r * 0.78, r * 0.92, 0, 40), body, { key: key + 'b', crayon: PAL.orangeD, crAl: 0.35, crPer: 30 });
+  cut(ellipsePts(x, y + r * 0.35, r * 0.48, r * 0.5, 0, 30), belly, { key: key + 'bl', shadow: false, pat: (bb) => { for (let i = 0; i < 3; i++) for (let j = -1; j <= 1; j++) ink(arcPts(x + j * r * 0.2 + (i % 2) * r * 0.1, y + r * (0.2 + i * 0.17), r * 0.07, 0.2, Math.PI - 0.2, 6), { w: 2.5, color: 'rgba(196,84,46,0.6)', key: key + 'f' + i + j }); } });
+  const wf = Math.sin(TT * 3) * 0.08;
+  cut(rot(ellipsePts(x - r * 0.74, y + r * 0.1, r * 0.2, r * 0.45, 0, 20), x - r * 0.74, y - r * 0.2, 0.25 + wf), PAL.orangeD, { key: key + 'wL', sb: 5 });
+  cut(rot(ellipsePts(x + r * 0.74, y + r * 0.1, r * 0.2, r * 0.45, 0, 20), x + r * 0.74, y - r * 0.2, -0.25 - wf), PAL.orangeD, { key: key + 'wR', sb: 5 });
+  const blink = heroBlink(key) || mood === 'happy';
+  [-1, 1].forEach((d) => {
+    const ex = x + d * r * 0.3, ey = y - r * 0.32;
+    cut(ellipsePts(ex, ey, r * 0.27, r * 0.27, 0, 24), PAL.paper, { key: key + 'er' + d, sb: 4, sy: 2 });
+    if (blink) ink(arcPts(ex, ey + r * 0.03, r * 0.13, Math.PI * 1.15, Math.PI * 1.85, 8), { w: r * 0.05, color: PAL.ink, key: key + 'bk' + d });
+    else { const pr = mood === 'wow' ? 0.17 : 0.14; dot(ex + (o.look ?? 0) * r * 0.06, ey, r * pr, PAL.ink); dot(ex + (o.look ?? 0) * r * 0.06 + r * 0.04, ey - r * 0.05, r * 0.045, '#fff'); }
+    if (mood === 'sad') ink([[ex - d * r * 0.2, ey - r * 0.36], [ex + d * r * 0.08, ey - r * 0.28]], { w: r * 0.045, color: PAL.ink, key: key + 'brow' + d });
+  });
+  cut([[x - r * 0.09, y - r * 0.12], [x + r * 0.09, y - r * 0.12], [x, y + (mood === 'wow' ? 0.12 : 0.04) * r]], PAL.mustard, { key: key + 'bk', sb: 3 });
+  [-1, 1].forEach((d) => cut(ellipsePts(x + d * r * 0.25, y + r * 0.9, r * 0.14, r * 0.07, 0, 12), PAL.mustard, { key: key + 'ft' + d, sb: 3 }));
+}
+// B. NOVA — a tiny astronaut: a round helmet, a face behind glass
+function astro(x, y, r, o = {}) {
+  const key = o.key ?? 'astro', mood = heroBlink(key) && o.mood !== 'happy' ? 'focus' : (o.mood ?? 'smile'); y += heroBob(key, r);
+  cut(rect(x - r * 0.75, y - r * 0.2, r * 0.32, r * 0.75, r * 0.1), PAL.grey, { key: key + 'pack' });
+  [-1, 1].forEach((d) => cut(capsulePts(x + d * r * 0.25, y + r * 0.7, x + d * r * 0.28, y + r * 1.02, r * 0.26, 6), PAL.paper, { key: key + 'lg' + d, sb: 4 }));
+  cut(rect(x - r * 0.48, y + r * 0.05, r * 0.96, r * 0.78, r * 0.3), PAL.paper, { key: key + 'body', pat: pat.lines('rgba(120,110,130,0.18)', 18) });
+  cut(rect(x - r * 0.2, y + r * 0.22, r * 0.4, r * 0.24, r * 0.05), PAL.orange, { key: key + 'pnl' });
+  if (B % 8 < 4) dot(x + r * 0.1, y + r * 0.34, r * 0.04, '#ff6b6b');
+  const wv = Math.sin(TT * 3) * 0.2;
+  cut(capsulePts(x - r * 0.45, y + r * 0.2, x - r * 0.78, y + r * (0.55 + wv * 0.2), r * 0.24, 6), PAL.paper, { key: key + 'aL', sb: 4 });
+  cut(capsulePts(x + r * 0.45, y + r * 0.2, x + r * 0.78, y - r * (0.1 + wv), r * 0.24, 6), PAL.paper, { key: key + 'aR', sb: 4 });
+  cut(ellipsePts(x, y - r * 0.38, r * 0.62, r * 0.56, 0, 40), PAL.paper, { key: key + 'hm' });
+  cut(ellipsePts(x, y - r * 0.36, r * 0.47, r * 0.4, 0, 36), '#1b2550', { key: key + 'vz', shadow: false });
+  face(x, y - r * 0.38, r / 75, mood);
+  ink(arcPts(x - r * 0.08, y - r * 0.4, r * 0.34, Math.PI * 1.1, Math.PI * 1.4, 6), { w: r * 0.06, color: 'rgba(255,255,255,0.75)', key: key + 'gl' });
+  ink([[x + r * 0.35, y - r * 0.85], [x + r * 0.45, y - r * 1.1]], { w: r * 0.04, color: PAL.grey, key: key + 'ant' }); dot(x + r * 0.45, y - r * 1.12, r * 0.07, PAL.orange);
+}
+// C. BLIP — a small round explorer creature with one antenna and a backpack map
+function blob(x, y, r, o = {}) {
+  const key = o.key ?? 'blip', mood = heroBlink(key) && o.mood !== 'happy' ? 'focus' : (o.mood ?? 'smile'); y += heroBob(key, r);
+  const sq = 1 + Math.sin(TT * TAU * 0.8) * 0.03;
+  [-1, 1].forEach((d) => cut(ellipsePts(x + d * r * 0.35, y + r * 0.78, r * 0.2, r * 0.12, 0, 12), PAL.orangeD, { key: key + 'ft' + d, sb: 3 }));
+  cut(ellipsePts(x, y, r * 0.85 * sq, r * 0.8 / sq, 0, 40), PAL.orange, { key: key + 'b', crayon: PAL.orangeD, crAl: 0.35, crPer: 30 });
+  const sw = Math.sin(TT * 2.4) * r * 0.12;
+  ink([[x, y - r * 0.78], [x + sw * 0.5, y - r * 1.05], [x + sw, y - r * 1.3]], { w: r * 0.06, color: PAL.ink, key: key + 'ant' });
+  cut(ellipsePts(x + sw, y - r * 1.32, r * 0.11, r * 0.11, 0, 14), PAL.yellow, { key: key + 'tip', sb: 10, shc: 'rgba(246,207,85,0.7)', sx: 0, sy: 0 });
+  cut(ellipsePts(x - r * 0.92, y + r * 0.1, r * 0.16, r * 0.22, 0.4, 14), PAL.orange, { key: key + 'hL', sb: 4 });
+  cut(ellipsePts(x + r * 0.92, y + r * 0.05, r * 0.16, r * 0.22, -0.4, 14), PAL.orange, { key: key + 'hR', sb: 4 });
+  face(x, y - r * 0.1, r / 55, mood);
+  cut(rect(x - r * 0.3, y + r * 0.3, r * 0.6, r * 0.12, 3), PAL.teal, { key: key + 'belt', shadow: false });
+}
+function sHeroes() {
+  cut(rect(-30, -30, W + 60, H + 60, 0), PAL.night, { key: 'skyH', shadow: false, tear: 0, shade: false, pat: pat.dots('rgba(255,230,180,0.06)', 3, 60) });
+  stars('H', 70, [0, 0, W, 620]);
+  moonDisc(1700, 170, 80, 'moonH');
+  cut([[-40, 780], [700, 760], [1300, 790], [W + 40, 770], [W + 40, H + 40], [-40, H + 40]], '#e0bf84', { key: 'sandH', sy: -6, pat: pat.dots('rgba(150,100,50,0.18)', 3, 26) });
+  owl(400, 620, 150, { key: 'ollie', mood: 'wow', look: 1 });
+  astro(960, 600, 150, { key: 'nova', mood: 'smile' });
+  blob(1520, 640, 140, { key: 'blip', mood: 'happy' });
+  tag('A · Ollie the owl', 400, 900, 52, { rot: -0.02 });
+  tag('B · Nova the astronaut', 960, 900, 52, { rot: 0.015 });
+  tag('C · Blip the explorer', 1520, 900, 52, { rot: -0.01 });
+}
 // =====================================================================
 //  ERAS, CAMERAS, BRIDGES — read by kit/morph.js. Look-check stage: hard cuts only.
 // =====================================================================
-const ERA_BG = ['#141c40', '#0e1230', '#1d4f63', '#0e1230'];
+const ERA_BG = ['#141c40', '#0e1230', '#1d4f63', '#0e1230', '#141c40'];
 function pieceCam(era, t) { return null; }
 const BRIDGES = [];
 
